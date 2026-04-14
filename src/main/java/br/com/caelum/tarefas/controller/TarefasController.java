@@ -56,10 +56,6 @@ public class TarefasController {
 	@RequestMapping("listaTarefas")
 	public String lista(Model model) {
 		List<Tarefa> tarefas = dao.lista();
-		
-//		ModelAndView mv = new ModelAndView("tarefas/lista");
-//		mv.addObject("tarefas", tarefas);
-		
 		model.addAttribute("tarefas", tarefas);
 		return "tarefa/lista";
 	}
