@@ -1,5 +1,4 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -31,20 +30,6 @@
                 <div class="form-group">
                     <label for="descricao">Descricao</label>
                     <textarea id="descricao" name="descricao" class="form-control" rows="5">${tarefa.descricao}</textarea>
-                </div>
-
-                <div class="form-group">
-                    <div class="form-check">
-                        <input type="checkbox" id="finalizado" name="finalizado" value="true" ${tarefa.finalizado ? 'checked' : ''} />
-                        <label for="finalizado">Finalizada</label>
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <label for="dataFinalizacao">Data de Finalizacao</label>
-                    <input type="text" id="dataFinalizacao" name="dataFinalizacao" class="form-control"
-                           placeholder="dd/MM/yyyy"
-                           value="<fmt:formatDate value="${tarefa.dataFinalizacao.time}" pattern="dd/MM/yyyy" />" />
                 </div>
 
                 <div style="display: flex; gap: 0.75rem;">

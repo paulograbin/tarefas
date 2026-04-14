@@ -59,15 +59,12 @@ public class JdbcTarefaDao {
 	}
 
 	public void altera(Tarefa tarefa) {
-		String sql = "update tarefas set descricao = ?, finalizado = ?, dataFinalizacao = ? where id = ?";
+		String sql = "update tarefas set descricao = ? where id = ?";
 		PreparedStatement stmt;
 		try {
 			stmt = conn.prepareStatement(sql);
 			stmt.setString(1, tarefa.getDescricao());
-			stmt.setBoolean(2, tarefa.isFinalizado());
-			stmt.setDate(3, tarefa.getDataFinalizacao() != null ? new Date(
-					tarefa.getDataFinalizacao().getTimeInMillis()) : null);
-			stmt.setLong(4, tarefa.getId());
+			stmt.setLong(2, tarefa.getId());
 			stmt.execute();
 		} catch (SQLException e) {
 			throw new RuntimeException(e);
