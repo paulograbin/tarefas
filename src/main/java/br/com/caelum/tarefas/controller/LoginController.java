@@ -26,7 +26,7 @@ public class LoginController {
 	public String efetuaLogin(Usuario usuario, HttpSession session) {
 		if(new JdbcUsuarioDao().existeUsuario(usuario)) {
 			session.setAttribute("usuarioLogado", usuario);
-			return "menu";
+			return "redirect:listaTarefas";
 		}
 		
 		return "redirect:loginForm";
