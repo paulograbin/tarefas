@@ -16,6 +16,9 @@
                     <h1>Tarefas</h1>
                     <p>Entre com suas credenciais para continuar</p>
                 </div>
+                <c:if test="${not empty param.expirado}">
+                    <div class="alert alert-info">Sua sessao expirou. Faca login novamente.</div>
+                </c:if>
                 <c:if test="${not empty param.erro}">
                     <div class="alert alert-danger">Login ou senha incorretos.</div>
                 </c:if>

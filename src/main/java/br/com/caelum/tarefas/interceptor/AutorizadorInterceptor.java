@@ -10,17 +10,21 @@ public class AutorizadorInterceptor extends HandlerInterceptorAdapter {
 	@Override
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
 			throws Exception {
-		
+
 		String uri = request.getRequestURI();
 	      if(uri.endsWith("loginForm") || uri.endsWith("efetuaLogin") || uri.contains("resources")){
 	        return true;
 	      }
-		
+
 		if(request.getSession().getAttribute("usuarioLogado") != null) {
 			return true;
 		}
-		
-		response.sendRedirect("loginForm");
+
+		if(request.getRequestedSessionId() != null && !request.isRequestedSessionIdValid()) {
+			response.sendRedirect("loginForm?expirado=1");
+		} else {
+			response.sendRedirect("loginForm");
+		}
 		return false;
 	}
 }
