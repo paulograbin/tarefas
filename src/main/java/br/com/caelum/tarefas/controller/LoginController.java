@@ -29,6 +29,6 @@ public class LoginController {
 			return "redirect:listaTarefas";
 		}
 		
-		return "redirect:loginForm";
+		return "redirect:loginForm?erro=1";
 	}
 }

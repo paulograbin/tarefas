@@ -394,6 +394,12 @@ table .actions {
   border: 1px solid #93c5fd;
 }
 
+.alert-danger {
+  background-color: var(--color-danger-light);
+  color: var(--color-danger);
+  border: 1px solid #fca5a5;
+}
+
 /* --- Toolbar (above table) --- */
 .toolbar {
   display: flex;
