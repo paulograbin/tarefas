@@ -1,0 +1,8 @@
+.git
+.settings
+.classpath
+.project
+build/
+*.class
+docker/
+docker-compose.yml
