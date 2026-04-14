@@ -70,11 +70,7 @@ public class TarefasController {
 		if(result.hasErrors()) {
 			return "tarefa/formulario";
 		}
-		
-		if(result.hasFieldErrors("descricao")) {
-			return "tarefas/formulario";
-		}
-		
+
 		dao.adiciona(tarefa);
 		return "tarefa/adicionada";
 	}
