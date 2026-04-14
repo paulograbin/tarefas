@@ -24,13 +24,13 @@
     <script type="text/javascript">
         function finalizaAgora(id) {
             $.post("finalizaTarefa", {'id' : id}, function(resposta) {
-                $("#tarefa_"+id).html(resposta);
+                $("#tarefa_"+id).html(resposta).addClass("row-finalizada");
             });
         }
 
         function reabreAgora(id) {
             $.post("reabreTarefa", {'id' : id}, function(resposta) {
-                $("#tarefa_"+id).html(resposta);
+                $("#tarefa_"+id).html(resposta).removeClass("row-finalizada");
             });
         }
     </script>
@@ -90,7 +90,7 @@
                         </thead>
                         <tbody>
                             <c:forEach items="${tarefas}" var="tarefa">
-                                <tr id="tarefa_${tarefa.id}">
+                                <tr id="tarefa_${tarefa.id}" class="${tarefa.finalizado ? 'row-finalizada' : ''}">
                                     <td>${tarefa.id}</td>
                                     <td>${tarefa.descricao}</td>
                                     <c:if test="${tarefa.finalizado eq true}">

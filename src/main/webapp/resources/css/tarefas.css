@@ -344,6 +344,14 @@ table tbody tr:hover {
   background-color: var(--color-primary-light);
 }
 
+table tbody tr.row-finalizada td {
+  color: var(--color-gray-400);
+}
+
+table tbody tr.row-finalizada:hover {
+  background-color: var(--color-gray-100);
+}
+
 table .actions {
   display: flex;
   gap: 0.5rem;
