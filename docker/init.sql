@@ -1,4 +1,4 @@
-CREATE DATABASE IF NOT EXISTS fj21;
+CREATE DATABASE IF NOT EXISTS fj21 CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 USE fj21;
 
 CREATE TABLE IF NOT EXISTS tarefas (
@@ -6,12 +6,12 @@ CREATE TABLE IF NOT EXISTS tarefas (
     descricao VARCHAR(255),
     finalizado BOOLEAN DEFAULT FALSE,
     dataFinalizacao DATE
-);
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 CREATE TABLE IF NOT EXISTS usuarios (
     id BIGINT AUTO_INCREMENT PRIMARY KEY,
     login VARCHAR(255),
     senha VARCHAR(255)
-);
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 INSERT INTO usuarios (login, senha) VALUES ('admin', 'admin');
