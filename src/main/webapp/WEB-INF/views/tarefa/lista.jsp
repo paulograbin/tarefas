@@ -26,6 +26,12 @@
                 $("#tarefa_"+id).html(resposta);
             });
         }
+
+        function reabreAgora(id) {
+            $.post("reabreTarefa", {'id' : id}, function(resposta) {
+                $("#tarefa_"+id).html(resposta);
+            });
+        }
     </script>
 
     <div class="container">
@@ -78,6 +84,9 @@
                                     </td>
                                     <td>
                                         <div class="actions">
+                                            <c:if test="${tarefa.finalizado eq true}">
+                                                <a href="#" onclick="reabreAgora(${tarefa.id}); return false;" class="btn btn-outline btn-sm">Reabrir</a>
+                                            </c:if>
                                             <a href="mostraTarefa?id=${tarefa.id}" class="btn btn-outline btn-sm">Alterar</a>
                                             <a href="#" onclick="if(confirm('Tem certeza que deseja remover esta tarefa?')) window.location='removeTarefa?id=${tarefa.id}'; return false;" class="btn btn-danger btn-sm">Remover</a>
                                         </div>

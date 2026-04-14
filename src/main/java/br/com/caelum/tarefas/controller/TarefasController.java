@@ -30,6 +30,13 @@ public class TarefasController {
 		model.addAttribute("tarefa", dao.buscaPorId(id));
 		return "tarefa/finalizada";
 	}
+
+	@RequestMapping("reabreTarefa")
+	public String reabrir(Long id, Model model) {
+		dao.reabrir(id);
+		model.addAttribute("tarefa", dao.buscaPorId(id));
+		return "tarefa/reaberta";
+	}
 	
 	@RequestMapping("alteraTarefa")
 	public String altera(Tarefa tarefa) {

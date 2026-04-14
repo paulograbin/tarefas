@@ -138,6 +138,24 @@ public class JdbcTarefaDao {
 		}
 	}
 
+	public void reabrir(Long id) {
+		if (id == null) {
+			throw new IllegalStateException("Id da tarefa não deve ser nula.");
+		}
+
+		String sql = "update tarefas set finalizado = ?, dataFinalizacao = ? where id = ?";
+		PreparedStatement stmt;
+		try {
+			stmt = conn.prepareStatement(sql);
+			stmt.setBoolean(1, false);
+			stmt.setDate(2, null);
+			stmt.setLong(3, id);
+			stmt.execute();
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
+		}
+	}
+
 	private Tarefa populaTarefa(ResultSet rs) throws SQLException {
 		Tarefa tarefa = new Tarefa();
 
