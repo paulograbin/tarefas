@@ -5,7 +5,7 @@
 
 	<persistence-unit name="tarefas">
 		<provider>org.hibernate.ejb.HibernatePersistence</provider>
-		<class>br.com.caelum.tarefas.modelo.Tarefas</class>
+		<class>br.com.caelum.tarefas.modelo.Tarefa</class>
 		
 		<properties>
 			<property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/>
