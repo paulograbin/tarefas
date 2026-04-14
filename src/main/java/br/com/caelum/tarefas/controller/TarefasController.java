@@ -41,9 +41,9 @@ public class TarefasController {
 	@RequestMapping("alteraTarefa")
 	public String altera(Tarefa tarefa) {
 		dao.altera(tarefa);
-		return "redirect:listaTarefas";
+		return "redirect:listaTarefas?alterada=1";
 	}
-	
+
 	@RequestMapping("mostraTarefa")
 	public String mostra(Long id, Model model) {
 		model.addAttribute("tarefa", dao.buscaPorId(id));
@@ -57,7 +57,7 @@ public class TarefasController {
 		tarefa.setId(id);
 		
 		dao.remove(tarefa);
-		return "redirect:listaTarefas";
+		return "redirect:listaTarefas?removida=1";
 	}
 	
 	@RequestMapping("listaTarefas")
