@@ -2,7 +2,7 @@
 .settings
 .classpath
 .project
-build/
-*.class
+.idea
+target/
 docker/
 docker-compose.yml
