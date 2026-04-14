@@ -15,7 +15,12 @@ public class ConnectionFactory {
 			throw new SQLException(e);
 		}
 
-		return DriverManager.getConnection("jdbc:mysql://localhost/fj21", "root", "12345");
+		String dbHost = System.getenv("DB_HOST");
+		if (dbHost == null || dbHost.isEmpty()) {
+			dbHost = "localhost";
+		}
+
+		return DriverManager.getConnection("jdbc:mysql://" + dbHost + "/fj21", "root", "12345");
 	}
 
 }

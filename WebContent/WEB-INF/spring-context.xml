@@ -17,10 +17,15 @@
 	<mvc:annotation-driven />
 
 	<mvc:default-servlet-handler/>
-	
+
+	<bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="systemPropertiesModeName" value="SYSTEM_PROPERTIES_MODE_OVERRIDE"/>
+		<property name="searchSystemEnvironment" value="true"/>
+	</bean>
+
 	<bean id="mysqlDataSource" class="org.apache.commons.dbcp.BasicDataSource">
 		<property name="driverClassName" value="com.mysql.jdbc.Driver"/>
-		<property name="url" value="jdbc:mysql://localhost/fj21"/>
+		<property name="url" value="jdbc:mysql://${DB_HOST:localhost}/fj21"/>
 		<property name="username" value="root"/>
 		<property name="password" value="12345"/>
 	</bean>
