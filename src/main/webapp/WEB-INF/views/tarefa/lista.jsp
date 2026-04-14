@@ -38,7 +38,20 @@
         <div class="toolbar">
             <div class="page-header">
                 <h1>Minhas Tarefas</h1>
-                <p>Gerencie suas tarefas</p>
+                <c:if test="${not empty tarefas}">
+                    <c:set var="pendentes" value="0" />
+                    <c:set var="finalizadas" value="0" />
+                    <c:forEach items="${tarefas}" var="t">
+                        <c:choose>
+                            <c:when test="${t.finalizado}"><c:set var="finalizadas" value="${finalizadas + 1}" /></c:when>
+                            <c:otherwise><c:set var="pendentes" value="${pendentes + 1}" /></c:otherwise>
+                        </c:choose>
+                    </c:forEach>
+                    <p>${pendentes} pendente<c:if test="${pendentes != 1}">s</c:if>, ${finalizadas} finalizada<c:if test="${finalizadas != 1}">s</c:if></p>
+                </c:if>
+                <c:if test="${empty tarefas}">
+                    <p>Gerencie suas tarefas</p>
+                </c:if>
             </div>
             <a href="novaTarefa" class="btn btn-primary">Nova Tarefa</a>
         </div>
