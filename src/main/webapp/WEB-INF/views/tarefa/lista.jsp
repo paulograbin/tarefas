@@ -36,6 +36,10 @@
     </script>
 
     <div class="container">
+        <c:if test="${not empty param.adicionada}">
+            <div class="alert alert-success">Nova tarefa adicionada com sucesso!</div>
+        </c:if>
+
         <div class="toolbar">
             <div class="page-header">
                 <h1>Minhas Tarefas</h1>

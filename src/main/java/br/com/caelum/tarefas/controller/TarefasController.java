@@ -79,6 +79,6 @@ public class TarefasController {
 		}
 
 		dao.adiciona(tarefa);
-		return "tarefa/adicionada";
+		return "redirect:listaTarefas?adicionada=1";
 	}
 }
