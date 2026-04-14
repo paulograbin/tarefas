@@ -12,6 +12,7 @@
     <nav class="navbar">
         <a href="listaTarefas" class="navbar-brand">Tarefas</a>
         <ul class="navbar-nav">
+            <li class="navbar-user">Bem vindo, <strong>${sessionScope.usuarioLogado.login}</strong></li>
             <li><a href="listaTarefas">Minhas Tarefas</a></li>
             <li><a href="novaTarefa">Nova Tarefa</a></li>
             <li><a href="logout">Sair</a></li>
