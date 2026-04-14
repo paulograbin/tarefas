@@ -74,7 +74,7 @@ public class JdbcTarefaDao {
 	public List<Tarefa> lista() {
 		try {
 			List<Tarefa> tarefas = new ArrayList<Tarefa>();
-			PreparedStatement stmt = this.conn.prepareStatement("select * from tarefas");
+			PreparedStatement stmt = this.conn.prepareStatement("select * from tarefas order by finalizado asc, id desc");
 
 			ResultSet rs = stmt.executeQuery();
 
