@@ -9,7 +9,6 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
-import javax.persistence.Entity;
 import javax.sql.DataSource;
 
 import org.springframework.beans.factory.annotation.Autowired;
