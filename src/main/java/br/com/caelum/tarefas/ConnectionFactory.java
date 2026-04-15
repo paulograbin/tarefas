@@ -10,7 +10,7 @@ public class ConnectionFactory {
 		System.out.println("conectando ...");
 
 		try {
-			Class.forName("com.mysql.jdbc.Driver");
+			Class.forName("com.mysql.cj.jdbc.Driver");
 		} catch (ClassNotFoundException e) {
 			throw new SQLException(e);
 		}
@@ -20,7 +20,7 @@ public class ConnectionFactory {
 			dbHost = "localhost";
 		}
 
-		return DriverManager.getConnection("jdbc:mysql://" + dbHost + "/fj21?useUnicode=true&characterEncoding=UTF-8&useSSL=false", "root", "12345");
+		return DriverManager.getConnection("jdbc:mysql://" + dbHost + "/fj21?useUnicode=true&characterEncoding=UTF-8&useSSL=false&allowPublicKeyRetrieval=true", "root", "12345");
 	}
 
 }
