@@ -14,4 +14,4 @@ CREATE TABLE IF NOT EXISTS usuarios (
     senha VARCHAR(255)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
-INSERT INTO usuarios (login, senha) VALUES ('admin', 'admin');
+INSERT INTO usuarios (login, senha) VALUES ('admin', '$2a$10$yo3t6XGRucq.Ap6a/l9uR..nJldXch0F9x9ZYPvc6DvzTucM6XqzK');

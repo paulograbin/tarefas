@@ -5,6 +5,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import org.mindrot.jbcrypt.BCrypt;
+
 import br.com.caelum.tarefas.ConnectionFactory;
 import br.com.caelum.tarefas.modelo.Usuario;
 
@@ -25,16 +27,20 @@ public class JdbcUsuarioDao {
 		}
 
 		try {
-			PreparedStatement stmt = this.conn.prepareStatement("select * from usuarios where login = ? and senha = ?");
+			PreparedStatement stmt = this.conn.prepareStatement("select senha from usuarios where login = ?");
 			stmt.setString(1, usuario.getLogin());
-			stmt.setString(2, usuario.getSenha());
 			ResultSet rs = stmt.executeQuery();
 
-			boolean encontrado = rs.next();
+			boolean autenticado = false;
+			if (rs.next()) {
+				String hashArmazenado = rs.getString("senha");
+				autenticado = BCrypt.checkpw(usuario.getSenha(), hashArmazenado);
+			}
+
 			rs.close();
 			stmt.close();
 
-			return encontrado;
+			return autenticado;
 		} catch (SQLException e) {
 			throw new RuntimeException(e);
 		}
