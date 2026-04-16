@@ -5,17 +5,22 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import org.mindrot.jbcrypt.BCrypt;
+import javax.sql.DataSource;
 
-import br.com.caelum.tarefas.ConnectionFactory;
+import org.mindrot.jbcrypt.BCrypt;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+
 import br.com.caelum.tarefas.modelo.Usuario;
 
+@Repository
 public class JdbcUsuarioDao {
 	private Connection conn;
 
-	public JdbcUsuarioDao() {
+	@Autowired
+	public JdbcUsuarioDao(DataSource dataSource) {
 		try {
-			conn = new ConnectionFactory().getConnection();
+			conn = dataSource.getConnection();
 		} catch (SQLException e) {
 			throw new RuntimeException(e);
 		}
