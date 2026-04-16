@@ -23,9 +23,9 @@
 		<property name="searchSystemEnvironment" value="true"/>
 	</bean>
 
-	<bean id="mysqlDataSource" class="org.apache.commons.dbcp.BasicDataSource">
+	<bean id="mysqlDataSource" class="com.zaxxer.hikari.HikariDataSource">
 		<property name="driverClassName" value="com.mysql.cj.jdbc.Driver"/>
-		<property name="url" value="jdbc:mysql://${DB_HOST:localhost}/fj21?useUnicode=true&amp;characterEncoding=UTF-8&amp;useSSL=false&amp;allowPublicKeyRetrieval=true"/>
+		<property name="jdbcUrl" value="jdbc:mysql://${DB_HOST:localhost}/fj21?useUnicode=true&amp;characterEncoding=UTF-8&amp;useSSL=false&amp;allowPublicKeyRetrieval=true"/>
 		<property name="username" value="root"/>
 		<property name="password" value="12345"/>
 	</bean>
